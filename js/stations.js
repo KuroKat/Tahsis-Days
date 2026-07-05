@@ -1,13 +1,17 @@
 let stations = [];
 
-async function loadStations() {
+async function loadStations(){
+
     const response = await fetch("data/stations.json");
+
     stations = await response.json();
+
 }
 
-function getStation(id) {
-    return stations.find(
-        station => station.id === id
-    );
+function getRandomStation(){
+
+    return stations[
+        Math.floor(Math.random()*stations.length)
+    ];
 
 }

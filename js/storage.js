@@ -1,18 +1,20 @@
-const STORAGE_KEY = "ranger-hunt-save";
+const STORAGE_KEY = "ranger-hunt";
 
 function loadGame() {
+
     const save = localStorage.getItem(STORAGE_KEY);
-    if (!save) {
-        return {
-            score: 0,
-            stationsFound: []
-        };
+
+    if (save) {
+        return JSON.parse(save);
     }
-    return JSON.parse(save);
 
+    return {
+        score: 0,
+        stationsFound: []
+    };
 }
-function saveGame(game) {
 
+function saveGame(game) {
     localStorage.setItem(
         STORAGE_KEY,
         JSON.stringify(game)
@@ -20,5 +22,7 @@ function saveGame(game) {
 }
 
 function resetGame() {
+
     localStorage.removeItem(STORAGE_KEY);
+
 }

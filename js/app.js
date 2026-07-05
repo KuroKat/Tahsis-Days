@@ -1,50 +1,48 @@
-let score=loadScore();
-
-document.getElementById("score").innerText=score;
-
-const message=document.getElementById("message");
+const scoreElement = document.getElementById("score");
+const message = document.getElementById("message");
 
 document
 .getElementById("scanButton")
-.addEventListener("click",simulateScan);
+.addEventListener("click", scanStation);
 
 document
 .getElementById("resetButton")
-.addEventListener("click",reset);
+.addEventListener("click", reset);
 
-function simulateScan(){
+async function start(){
 
-const ids=Object.keys(stations);
+    await loadStations();
 
-const random=ids[Math.floor(Math.random()*ids.length)];
-
-awardPoints(random);
+    updateDisplay();
 
 }
 
-function awardPoints(id){
+function updateDisplay(){
 
-score+=stations[id];
+    scoreElement.innerText = game.score;
 
-saveScore(score);
+}
 
-document.getElementById("score").innerText=score;
+function scanStation(){
 
-message.innerText=
-`${id} found!
+    const station = getRandomStation();
 
-+${stations[id]} points`;
+    const result = awardStation(station);
+
+    updateDisplay();
+
+    message.innerText = result.message;
 
 }
 
 function reset(){
 
-score=0;
+    resetCurrentGame();
 
-resetScore();
+    updateDisplay();
 
-document.getElementById("score").innerText=0;
-
-message.innerText="Score Reset";
+    message.innerText="Game Reset";
 
 }
+
+start();
