@@ -1,9 +1,30 @@
-{
-  "score": 120,
-  "stationsFound": [
-    "RANGER001",
-    "RANGER004",
-    "BONUS001"
-  ],
-  "startTime": "2026-07-05T09:30:00Z"
-}
+[
+  {
+    "id": "RANGER001",
+    "name": "Fire Starting",
+    "description": "Light a fire using one match.",
+    "points": 20,
+    "type": "skill"
+  },
+  {
+    "id": "RANGER002",
+    "name": "Navigation",
+    "description": "Find the next bearing.",
+    "points": 15,
+    "type": "navigation"
+  },
+  {
+    "id": "RANGER003",
+    "name": "Knots",
+    "description": "Tie a Bowline.",
+    "points": 10,
+    "type": "skill"
+  },
+  {
+    "id": "BONUS001",
+    "name": "Secret Cache",
+    "description": "Hidden bonus station.",
+    "points": 50,
+    "type": "bonus"
+  }
+]

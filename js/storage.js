@@ -1,17 +1,24 @@
-function loadScore(){
+const STORAGE_KEY = "ranger-hunt-save";
 
-return Number(localStorage.getItem("score")) || 0;
+function loadGame() {
+    const save = localStorage.getItem(STORAGE_KEY);
+    if (!save) {
+        return {
+            score: 0,
+            stationsFound: []
+        };
+    }
+    return JSON.parse(save);
 
 }
+function saveGame(game) {
 
-function saveScore(score){
-
-localStorage.setItem("score",score);
-
+    localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(game)
+    );
 }
 
-function resetScore(){
-
-localStorage.removeItem("score");
-
+function resetGame() {
+    localStorage.removeItem(STORAGE_KEY);
 }
