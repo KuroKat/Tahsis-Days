@@ -1,0 +1,11 @@
+const stations={
+
+RANGER001:10,
+
+RANGER002:15,
+
+RANGER003:20,
+
+BONUS001:50
+
+};
